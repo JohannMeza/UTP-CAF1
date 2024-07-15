@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@400;500;600;700;800&display=swap');
+
+*,
+body {
+  font-family: 'Baloo Chettan 2', cursive;
+}
+
+main {
+  background: #ECF4F9;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
