@@ -4,11 +4,6 @@ import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  build: {
-    rollupOptions: {
-      input: 'src/main.tsx', // Ruta al archivo de entrada principal de tu aplicación
-    },
-  },
   plugins: [react()],
   resolve: {
     alias: {
