@@ -193,9 +193,7 @@ export const FisicaView: FC<PropsWithChildren> = () => {
     const velocidad = parseFloat((calculo.distancia / (cosRad(dataConfig.angulo) * (calculo.tiempo / 1000))).toFixed(2));
     const tiempo = parseFloat(((velocidad * sinRad(dataConfig.angulo)) / dataConfig.gravedad).toFixed(2));
     const alturaMax = parseFloat((
-      dataConfig.altura + 
-      (velocidad * sinRad(dataConfig.angulo) * (tiempo)) -
-      ((1 / 2) * (dataConfig.gravedad) * (Math.pow(tiempo, 2)))
+      (dataConfig.gravedad / 2) * Math.pow((calculo.tiempo / 1000), 2)
     ).toFixed(2));
 
     setDataResultados({ alturaMax, tiempo, velocidad });
@@ -204,7 +202,7 @@ export const FisicaView: FC<PropsWithChildren> = () => {
       calc_1: [
         ['Vx = V0 * cos(θ)', `Vx = V0 * cos(${dataConfig.angulo})`],
         ['x = X0 + Vx * t', `x = 0 + V0.cos(${dataConfig.angulo}) * (${calculo.tiempo / 1000})`, `${calculo.distancia} = 0 + V0.cos(${dataConfig.angulo}) * (${calculo.tiempo / 1000})`, `V0 = ${velocidad} m/s`],
-        ['Vy = V0y - g * t', `0 = ${velocidad} * sen(${dataConfig.angulo}) - (${dataConfig.gravedad}) * t`, `t = (${velocidad} * sen(${dataConfig.angulo})) / ${dataConfig.gravedad}`, `t = ${tiempo} s`],
+        ['Hmax = (g / 2) * t ^ 2', `Hmax = (${dataConfig.gravedad} / 2) * ${calculo.tiempo} ^ 2`, `Hmax = ${alturaMax}`],
       ],
       calc_2: [
         'y = Y0 + Voy.t - (1 / 2) * g * t ^ 2',
